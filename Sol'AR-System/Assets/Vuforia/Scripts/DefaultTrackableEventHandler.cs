@@ -17,20 +17,24 @@ namespace Vuforia
         #region PRIVATE_MEMBER_VARIABLES
  
         private TrackableBehaviour mTrackableBehaviour;
-    
-        #endregion // PRIVATE_MEMBER_VARIABLES
 
+        #endregion // PRIVATE_MEMBER_VARIABLES  
 
+        #region PUBLIC_MEMBER_VARIABLES
+
+        public GameObject earthHalo;
+
+        #endregion // PUBLIC_MEMBER_VARIABLES
 
         #region UNTIY_MONOBEHAVIOUR_METHODS
-    
+
         void Start()
         {
             mTrackableBehaviour = GetComponent<TrackableBehaviour>();
             if (mTrackableBehaviour)
             {
                 mTrackableBehaviour.RegisterTrackableEventHandler(this);
-            }
+            }                  
         }
 
         #endregion // UNTIY_MONOBEHAVIOUR_METHODS
@@ -82,7 +86,7 @@ namespace Vuforia
             {
                 component.enabled = true;
             }
-
+            earthHalo.SetActive(true);
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
         }
 
@@ -103,7 +107,7 @@ namespace Vuforia
             {
                 component.enabled = false;
             }
-
+            earthHalo.SetActive(false);
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
         }
 
